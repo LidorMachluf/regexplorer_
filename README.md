@@ -49,8 +49,8 @@ PyPDF2>=3.0.0
 
 1. Clone the repo:
    ```bash
-   git clone https://github.com/<your-org>/regex-scanner.git
-   cd regex-scanner
+   git clone https://github.com/LidorMachluf/regexplorer_
+   cd regexplorer_
    ```
 
 2. Make the script executable:
