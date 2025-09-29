@@ -153,8 +153,8 @@ file,line,regex_name,regex,match,start,end,context
 
 1. Clone into a Kubernetes pod or EC2:
    ```bash
-   git clone https://github.com/<your-org>/regex-scanner.git /tmp/regex-scanner
-   cd /tmp/regex-scanner
+   git clone https://github.com/LidorMachluf/regexplorer_ /tmp/regexplorer_
+   cd /tmp/regexplorer_
    ```
 
 2. Copy or edit your regex file:
