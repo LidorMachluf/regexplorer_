@@ -1,0 +1,5 @@
+[
+  {"name":"aws-access-key","pattern":"\\bAKIA[0-9A-Z]{16}\\b"},
+  {"name":"slack-token","pattern":"xox[baprs]-[0-9A-Za-z-]{10,48}"},
+  {"name":"private-ip-nc","pattern":"\\bnc\\s+-w?\\s*\\d*\\s+\\d+\\.\\d+\\.\\d+\\.\\d+\\s+\\d+\\b"}
+]
