@@ -1,0 +1,61 @@
+# Fake Google API keys (variant) for scanner testing only
+# These values are invalid and safe to use in demos — do not use in production.
+
+# 1) Plain list (one per line)
+AIzaEXAMPLEabcdefghijklmnopqrstuvwx1234
+AIza1234TESTabcdefghijklmnopqrstuvwx000
+AIzaTEMPLATEabcdefghijklmnopqrstuvwx000
+AIzaFAKEKEYabcdefghijklmnopqrstuvwxTEMPL
+
+# 2) JSON example (app config)
+{
+  "google_api_keys": {
+    "maps": "AIzaEXAMPLEabcdefghijklmnopqrstuvwx1234",
+    "places": "AIza1234TESTabcdefghijklmnopqrstuvwx000",
+    "vision": "AIzaTEMPLATEabcdefghijklmnopqrstuvwx000",
+    "translate": "AIzaFAKEKEYabcdefghijklmnopqrstuvwxTEMPL"
+  },
+  "note": "demo keys for local testing"
+}
+
+# 3) .env / properties style
+GOOGLE_MAPS_KEY=AIzaEXAMPLEabcdefghijklmnopqrstuvwx1234
+GOOGLE_PLACES_KEY=AIza1234TESTabcdefghijklmnopqrstuvwx000
+GOOGLE_VISION_KEY=AIzaTEMPLATEabcdefghijklmnopqrstuvwx000
+GOOGLE_TRANSLATE_KEY=AIzaFAKEKEYabcdefghijklmnopqrstuvwxTEMPL
+
+# 4) YAML config
+google:
+  maps_key: "AIzaEXAMPLEabcdefghijklmnopqrstuvwx1234"
+  places_key: "AIza1234TESTabcdefghijklmnopqrstuvwx000"
+  vision_key: "AIzaTEMPLATEabcdefghijklmnopqrstuvwx000"
+  translate_key: "AIzaFAKEKEYabcdefghijklmnopqrstuvwxTEMPL"
+  note: demo-keys
+
+# 5) curl example (header)
+# curl -H "X-API-Key: AIzaEXAMPLEabcdefghijklmnopqrstuvwx1234" https://maps.example.com/api
+
+# 6) CSV (bulk import)
+key,name,env
+AIzaEXAMPLEabcdefghijklmnopqrstuvwx1234,maps,dev
+AIza1234TESTabcdefghijklmnopqrstuvwx000,places,staging
+AIzaTEMPLATEabcdefghijklmnopqrstuvwx000,vision,prod
+AIzaFAKEKEYabcdefghijklmnopqrstuvwxTEMPL,translate,analytics
+
+# 7) Code snippet (JS)
+const GOOGLE_KEYS = {
+  maps: "AIzaEXAMPLEabcdefghijklmnopqrstuvwx1234",
+  places: "AIza1234TESTabcdefghijklmnopqrstuvwx000",
+  vision: "AIzaTEMPLATEabcdefghijklmnopqrstuvwx000",
+  translate: "AIzaFAKEKEYabcdefghijklmnopqrstuvwxTEMPL"
+};
+console.log("Loaded demo Google API keys (do not use in production)");
+
+# 8) Mixed messy variant (extra spaces/quotes to test tolerant parsers)
+  "google_api_key" :  "AIzaEXAMPLEabcdefghijklmnopqrstuvwx1234" ,
+GOOGLE_KEY='AIza1234TESTabcdefghijklmnopqrstuvwx000'
+  maps_key =  "AIzaTEMPLATEabcdefghijklmnopqrstuvwx000"
+places_key:"AIzaFAKEKEYabcdefghijklmnopqrstuvwxTEMPL"
+
+# End of fake Google API keys variant file
+

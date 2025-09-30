@@ -1,0 +1,58 @@
+# Fake Base64-like keys for scanner testing only
+# These are dummy/example values and cannot be used to authenticate.
+
+# 1) Plain list (one per line)
+bG9nS1l4Vm5QdDlqQ2Z6bU1rR0p2c1pVQmF3T1h5PQ==
+U2VjdXJlQmFzZTY0S2V5VnJYT2p3cWpLZlBtV2t3PQ==
+cXl5V1p4T2tqNU1rUmZsZ0p2c3pYbG5Qd2t2T2tZPQ==
+Z1h6QmF0V3lTQ29qVnRtc0p2c1pZRm9rV2pQbVY9PQ==
+
+# 2) JSON config
+{
+  "secrets": {
+    "token_a": "bG9nS1l4Vm5QdDlqQ2Z6bU1rR0p2c1pVQmF3T1h5PQ==",
+    "token_b": "U2VjdXJlQmFzZTY0S2V5VnJYT2p3cWpLZlBtV2t3PQ==",
+    "token_c": "cXl5V1p4T2tqNU1rUmZsZ0p2c3pYbG5Qd2t2T2tZPQ==",
+    "token_d": "Z1h6QmF0V3lTQ29qVnRtc0p2c1pZRm9rV2pQbVY9PQ=="
+  },
+  "note": "demo base64 tokens"
+}
+
+# 3) .env / properties
+BASE64_TOKEN_A=bG9nS1l4Vm5QdDlqQ2Z6bU1rR0p2c1pVQmF3T1h5PQ==
+BASE64_TOKEN_B=U2VjdXJlQmFzZTY0S2V5VnJYT2p3cWpLZlBtV2t3PQ==
+BASE64_TOKEN_C=cXl5V1p4T2tqNU1rUmZsZ0p2c3pYbG5Qd2t2T2tZPQ==
+BASE64_TOKEN_D=Z1h6QmF0V3lTQ29qVnRtc0p2c1pZRm9rV2pQbVY9PQ==
+
+# 4) YAML
+base64_secrets:
+  - name: token_a
+    value: "bG9nS1l4Vm5QdDlqQ2Z6bU1rR0p2c1pVQmF3T1h5PQ=="
+  - name: token_b
+    value: "U2VjdXJlQmFzZTY0S2V5VnJYT2p3cWpLZlBtV2t3PQ=="
+  - name: token_c
+    value: "cXl5V1p4T2tqNU1rUmZsZ0p2c3pYbG5Qd2t2T2tZPQ=="
+  - name: token_d
+    value: "Z1h6QmF0V3lTQ29qVnRtc0p2c1pZRm9rV2pQbVY9PQ=="
+
+# 5) HTTP header / curl example
+# curl -H "Authorization: Bearer bG9nS1l4Vm5QdDlqQ2Z6bU1rR0p2c1pVQmF3T1h5PQ==" https://api.example.com/endpoint
+
+# 6) CSV
+id,env,token
+1,dev,bG9nS1l4Vm5QdDlqQ2Z6bU1rR0p2c1pVQmF3T1h5PQ==
+2,staging,U2VjdXJlQmFzZTY0S2V5VnJYT2p3cWpLZlBtV2t3PQ==
+3,prod,cXl5V1p4T2tqNU1rUmZsZ0p2c3pYbG5Qd2t2T2tZPQ==
+4,analytics,Z1h6QmF0V3lTQ29qVnRtc0p2c1pZRm9rV2pQbVY9PQ==
+
+# 7) Code snippet (JS)
+const TOKENS = [
+  "bG9nS1l4Vm5QdDlqQ2Z6bU1rR0p2c1pVQmF3T1h5PQ==",
+  "U2VjdXJlQmFzZTY0S2V5VnJYT2p3cWpLZlBtV2t3PQ==",
+  "cXl5V1p4T2tqNU1rUmZsZ0p2c3pYbG5Qd2t2T2tZPQ==",
+  "Z1h6QmF0V3lTQ29qVnRtc0p2c1pZRm9rV2pQbVY9PQ=="
+];
+console.log("Loaded demo tokens (do not use in production)");
+
+# End of fake base64-like keys file
+

@@ -1,0 +1,58 @@
+# Fake Base64-like strings for scanner testing only
+# These values are dummy/example tokens and cannot be used to authenticate.
+
+# 1) Plain list (one per line)
+QUl6YUVYQU1QTEVhYmNkZWZnaGlqa2xtbm9wcXJzdHV2d3gxMjM0
+QUl6YTEyMzRURVNUYWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4MDAw
+QUl6YVRFTVBMQVRFYWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4MDAw
+QUl6YUZBS0VLRVlhYmNkZWZnaGlqa2xtbm9wcXJzdHV2d3hURU1QTA==
+
+# 2) JSON example
+{
+  "tokens": [
+    "QUl6YUVYQU1QTEVhYmNkZWZnaGlqa2xtbm9wcXJzdHV2d3gxMjM0",
+    "QUl6YTEyMzRURVNUYWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4MDAw",
+    "QUl6YVRFTVBMQVRFYWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4MDAw",
+    "QUl6YUZBS0VLRVlhYmNkZWZnaGlqa2xtbm9wcXJzdHV2d3hURU1QTA=="
+  ],
+  "note": "demo base64-like tokens"
+}
+
+# 3) .env / properties style
+BASE64_KEY_A=QUl6YUVYQU1QTEVhYmNkZWZnaGlqa2xtbm9wcXJzdHV2d3gxMjM0
+BASE64_KEY_B=QUl6YTEyMzRURVNUYWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4MDAw
+BASE64_KEY_C=QUl6YVRFTVBMQVRFYWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4MDAw
+BASE64_KEY_D=QUl6YUZBS0VLRVlhYmNkZWZnaGlqa2xtbm9wcXJzdHV2d3hURU1QTA==
+
+# 4) YAML config
+base64_tokens:
+  - id: a
+    value: "QUl6YUVYQU1QTEVhYmNkZWZnaGlqa2xtbm9wcXJzdHV2d3gxMjM0"
+  - id: b
+    value: "QUl6YTEyMzRURVNUYWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4MDAw"
+  - id: c
+    value: "QUl6YVRFTVBMQVRFYWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4MDAw"
+  - id: d
+    value: "QUl6YUZBS0VLRVlhYmNkZWZnaGlqa2xtbm9wcXJzdHV2d3hURU1QTA=="
+
+# 5) HTTP header / curl example
+# curl -H "Authorization: Bearer QUl6YUVYQU1QTEVhYmNkZWZnaGlqa2xtbm9wcXJzdHV2d3gxMjM0" https://api.example.com/endpoint
+
+# 6) CSV (bulk import)
+id,env,token
+1,dev,QUl6YUVYQU1QTEVhYmNkZWZnaGlqa2xtbm9wcXJzdHV2d3gxMjM0
+2,staging,QUl6YTEyMzRURVNUYWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4MDAw
+3,prod,QUl6YVRFTVBMQVRFYWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4MDAw
+4,analytics,QUl6YUZBS0VLRVlhYmNkZWZnaGlqa2xtbm9wcXJzdHV2d3hURU1QTA==
+
+# 7) Code snippet (JS)
+const TOKENS = [
+  "QUl6YUVYQU1QTEVhYmNkZWZnaGlqa2xtbm9wcXJzdHV2d3gxMjM0",
+  "QUl6YTEyMzRURVNUYWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4MDAw",
+  "QUl6YVRFTVBMQVRFYWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4MDAw",
+  "QUl6YUZBS0VLRVlhYmNkZWZnaGlqa2xtbm9wcXJzdHV2d3hURU1QTA=="
+];
+console.log("Loaded demo base64 tokens (do not use in production)");
+
+# End of fake base64-like token file
+

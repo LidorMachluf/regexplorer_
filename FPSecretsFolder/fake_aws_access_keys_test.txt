@@ -1,0 +1,71 @@
+# Fake AWS Access Key IDs for scanner testing only
+# These values are invalid and safe to use in demos
+
+# 1) Plain list (one per line)
+AKIAEXAMPLE000000000
+AKIATESTING123456789
+AKIADFUMYEXMPL000000
+AKIAEXAMPLETEMPLATE1
+
+# 2) AWS credentials-style (paired with fake secrets)
+[default]
+aws_access_key_id = AKIAEXAMPLE000000000
+aws_secret_access_key = FAKESECRET_EXAMPLE_000000000000000000000000
+
+[testing]
+aws_access_key_id = AKIATESTING123456789
+aws_secret_access_key = TESTSECRET_DUMMY_111111111111111111111111
+
+[staging]
+aws_access_key_id: AKIADFUMYEXMPL000000
+aws_secret_access_key: STAGINGSECRET_MOCK_22222222222222222222
+
+[prod-template]
+aws_access_key_id "AKIAEXAMPLETEMPLATE1"
+aws_secret_access_key "PRODSECRET_PLACEHOLDER_33333333333333333333"
+
+# 3) JSON example
+{
+  "aws_keys": [
+    {"id":"AKIAEXAMPLE000000000","env":"dev"},
+    {"id":"AKIATESTING123456789","env":"test"},
+    {"id":"AKIADFUMYEXMPL000000","env":"staging"},
+    {"id":"AKIAEXAMPLETEMPLATE1","env":"prod"}
+  ],
+  "note":"dummy keys for scanner tests"
+}
+
+# 4) .env / properties style
+AWS_DEV_KEY=AKIAEXAMPLE000000000
+AWS_TEST_KEY=AKIATESTING123456789
+AWS_STAGING_KEY=AKIADFUMYEXMPL000000
+AWS_PROD_TEMPLATE_KEY=AKIAEXAMPLETEMPLATE1
+
+# 5) YAML config
+aws:
+  dev_key: "AKIAEXAMPLE000000000"
+  test_key: "AKIATESTING123456789"
+  staging_key: "AKIADFUMYEXMPL000000"
+  prod_template_key: "AKIAEXAMPLETEMPLATE1"
+
+# 6) HTTP header / curl example
+# curl -H "X-AWS-Key: AKIAEXAMPLE000000000" https://api.example.com/
+
+# 7) CSV (bulk)
+id,env,key
+1,dev,AKIAEXAMPLE000000000
+2,test,AKIATESTING123456789
+3,staging,AKIADFUMYEXMPL000000
+4,prod,AKIAEXAMPLETEMPLATE1
+
+# 8) Code snippet (JS)
+const AWS_KEYS = {
+  dev: "AKIAEXAMPLE000000000",
+  test: "AKIATESTING123456789",
+  staging: "AKIADFUMYEXMPL000000",
+  prod: "AKIAEXAMPLETEMPLATE1"
+};
+console.log("Loaded demo AWS keys (do not use in production)");
+
+# End of fake AWS access keys test file
+
