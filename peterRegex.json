@@ -1,0 +1,39 @@
+[
+  {
+    "name": "aws-access-key",
+    "pattern": "\\b(A3T[A-Z0-9]|AKIA|AGPA|AIDA|AROA|AIPA|ANPA|ANVA|ASIA)[A-Z0-9]{16}\\b"
+  },
+  {
+    "name": "aws-access-key-b64",
+    "pattern": "\\b(QTNU|QUtJQ|QUdQQ|QUlEQ|QVJPQ|QUlQQ|QU5QQ|QU5WQ|QVNJQ)[%a-zA-Z0-9+/]{20,24}={0,2}\\b"
+  },
+  {
+    "name": "aws-secret-key",
+    "pattern": "\\b(?i)aws_secret_access_key[\"'=:\\s]*?(?P<value>[0-9a-zA-Z/+]{40})\\b"
+  },
+  {
+    "name": "aws-mws-auth-token",
+    "pattern": "\\bamzn\\.mws\\.[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\\b"
+  },
+  {
+    "name": "facebook-access-token",
+    "pattern": "\\b(?:^|[^0-9A-Za-z_+-]|\\\\[0abfnrtv]|(?:%|\\\\x)[0-9A-Fa-f]{2}|\\\\[0-7]{3}|\\\\[Uu][0-9A-Fa-f]{4}|\\x1B\\[[0-9;]{0,80}m)(?P<value>EAA[0-9A-Za-z]{80,800})\\b"
+  },
+  {
+    "name": "facebook-access-token-b64",
+    "pattern": "\\bRUFBQ0VkRW9zZTBjQk[%a-zA-Z0-9+/]+={0,2}\\b"
+  },
+  {
+    "name": "google-api-key",
+    "pattern": "\\bAIzaSy[0-9A-Za-z-_]{33}\\b"
+  },
+  {
+    "name": "google-api-key-b64",
+    "pattern": "\\bQUl6Y[%a-zA-Z0-9+/]{47}\\b"
+  },
+  {
+    "name": "google-oauth-access-token",
+    "pattern": "\\b(?P<value>ya29\\.[0-9A-Za-z_-]{22}[0-9A-Za-z_-]*)\\b"
+  }
+]
+
