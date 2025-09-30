@@ -1,0 +1,53 @@
+# Fake Google API keys for scanner testing only
+# These values are invalid and safe to use in demos
+
+# 1) Plain list (one per line)
+AIzaSyB9vK3dLpQwXz8mN2rT5yUeH4cV7aF0ghJ
+AIzaSyC7mX1pQs8VzR2bK6nY4tWfE9hU0jL5oZR
+AIzaSyD4nR8vT2yQp6sL1kZ3xW7cM5bH9uF0eXa
+AIzaSyE6pT2kV9mQ4rZ7bX1nL5yC3sH8wU0fGqM
+
+# 2) JSON example (app config)
+{
+  "api_keys": {
+    "maps": "AIzaSyB9vK3dLpQwXz8mN2rT5yUeH4cV7aF0ghJ",
+    "places": "AIzaSyC7mX1pQs8VzR2bK6nY4tWfE9hU0jL5oZR",
+    "vision": "AIzaSyD4nR8vT2yQp6sL1kZ3xW7cM5bH9uF0eXa",
+    "translate": "AIzaSyE6pT2kV9mQ4rZ7bX1nL5yC3sH8wU0fGqM"
+  },
+  "note": "demo keys"
+}
+
+# 3) .env / properties style
+GOOGLE_MAPS_API_KEY=AIzaSyB9vK3dLpQwXz8mN2rT5yUeH4cV7aF0ghJ
+GOOGLE_PLACES_API_KEY=AIzaSyC7mX1pQs8VzR2bK6nY4tWfE9hU0jL5oZR
+GOOGLE_VISION_API_KEY=AIzaSyD4nR8vT2yQp6sL1kZ3xW7cM5bH9uF0eXa
+GOOGLE_TRANSLATE_API_KEY=AIzaSyE6pT2kV9mQ4rZ7bX1nL5yC3sH8wU0fGqM
+
+# 4) YAML config
+google:
+  maps_key: "AIzaSyB9vK3dLpQwXz8mN2rT5yUeH4cV7aF0ghJ"
+  places_key: "AIzaSyC7mX1pQs8VzR2bK6nY4tWfE9hU0jL5oZR"
+  vision_key: "AIzaSyD4nR8vT2yQp6sL1kZ3xW7cM5bH9uF0eXa"
+  translate_key: "AIzaSyE6pT2kV9mQ4rZ7bX1nL5yC3sH8wU0fGqM"
+  note: demo-keys
+
+# 5) curl example (header)
+# curl -H "X-API-Key: AIzaSyB9vK3dLpQwXz8mN2rT5yUeH4cV7aF0ghJ" https://maps.example.com/api
+
+# 6) CSV (bulk import)
+key,name,env
+AIzaSyB9vK3dLpQwXz8mN2rT5yUeH4cV7aF0ghJ,maps,dev
+AIzaSyC7mX1pQs8VzR2bK6nY4tWfE9hU0jL5oZR,places,staging
+AIzaSyD4nR8vT2yQp6sL1kZ3xW7cM5bH9uF0eXa,vision,prod
+AIzaSyE6pT2kV9mQ4rZ7bX1nL5yC3sH8wU0fGqM,translate,analytics
+
+# 7) Code snippet
+const GOOGLE_KEYS = {
+  maps: "AIzaSyB9vK3dLpQwXz8mN2rT5yUeH4cV7aF0ghJ",
+  places: "AIzaSyC7mX1pQs8VzR2bK6nY4tWfE9hU0jL5oZR"
+};
+console.log("Using demo keys only");
+
+# End of fake Google API keys file
+

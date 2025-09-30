@@ -1,0 +1,46 @@
+# Fake Amazon MWS tokens for scanner testing only
+# These values are dummy/example tokens and cannot be used to authenticate.
+
+# 1) Plain list (one per line)
+amzn.mws.3f9a1c2b-7e4a-48d2-9f0a-1b2c3d4e5f6a
+amzn.mws.a1b2c3d4-5e6f-7a8b-9c0d-1e2f3a4b5c6d
+amzn.mws.0f1e2d3c-4b5a-6978-8a9b-0c1d2e3f4a5b
+amzn.mws.abcdef12-3456-7890-abcd-ef1234567890
+
+# 2) JSON example (service credentials)
+{
+  "mws_tokens": [
+    "amzn.mws.3f9a1c2b-7e4a-48d2-9f0a-1b2c3d4e5f6a",
+    "amzn.mws.a1b2c3d4-5e6f-7a8b-9c0d-1e2f3a4b5c6d",
+    "amzn.mws.0f1e2d3c-4b5a-6978-8a9b-0c1d2e3f4a5b",
+    "amzn.mws.abcdef12-3456-7890-abcd-ef1234567890"
+  ],
+  "note": "dummy tokens for local testing"
+}
+
+# 3) HTTP header / curl example
+# curl -H "X-Amzn-MWS-Auth: amzn.mws.3f9a1c2b-7e4a-48d2-9f0a-1b2c3d4e5f6a" https://api.example.com/orders
+
+# 4) .env / properties style
+MWS_TOKEN_DEFAULT=amzn.mws.3f9a1c2b-7e4a-48d2-9f0a-1b2c3d4e5f6a
+MWS_TOKEN_BACKUP=amzn.mws.a1b2c3d4-5e6f-7a8b-9c0d-1e2f3a4b5c6d
+
+# 5) YAML config
+mws:
+  primary_token: "amzn.mws.0f1e2d3c-4b5a-6978-8a9b-0c1d2e3f4a5b"
+  secondary_token: "amzn.mws.abcdef12-3456-7890-abcd-ef1234567890"
+  description: "demo tokens"
+
+# 6) CSV style (useful for bulk-import tests)
+token,id,env
+amzn.mws.3f9a1c2b-7e4a-48d2-9f0a-1b2c3d4e5f6a,1,dev
+amzn.mws.a1b2c3d4-5e6f-7a8b-9c0d-1e2f3a4b5c6d,2,staging
+amzn.mws.0f1e2d3c-4b5a-6978-8a9b-0c1d2e3f4a5b,3,prod
+amzn.mws.abcdef12-3456-7890-abcd-ef1234567890,4,analytics
+
+# 7) Script snippet
+MWS_TOKEN="amzn.mws.3f9a1c2b-7e4a-48d2-9f0a-1b2c3d4e5f6a"
+echo "Using token: $MWS_TOKEN (test only)"
+
+# End of fake tokens file
+

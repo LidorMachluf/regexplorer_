@@ -1,0 +1,18 @@
+# Example AWS credentials for testing only
+# These keys are NOT valid, used only for scanner validation
+
+[default]
+aws_access_key_id = ASIASC1SLYSZE0V5F5YM
+aws_secret_access_key = mF3x9KpQv7b2NfY1Z0s+R4uL8aTqWcG5hJ2yP0Vw
+
+[dev-profile]
+aws_access_key_id=AKIAIC5LU38T5XHOLBEB
+aws_secret_access_key=q8Lz+F3nVb9YtR1sWc4Kp0mH7aSx2ZjU5o/IeQvB
+
+[staging]
+aws_access_key_id: ASIAS8V51VD3NSEMO1TZ
+aws_secret_access_key: tY6vR1p+Nd9sWq3Kx4Zm0Lb8Hu7GfS2cP5o/JeVn
+
+[production]
+aws_access_key_id "ASIABV2SERO4I43KM3RX"
+aws_secret_access_key "A1b2C3d4E5f6G7h8I9j0K+l/MnOpQrStUvWxYzAB"
