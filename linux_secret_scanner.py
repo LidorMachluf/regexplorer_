@@ -595,7 +595,12 @@ def main():
     ap.add_argument("--context", type=int, default=40, help="Context chars around match")
 
     # Exclusion options
-    ap.add_argument("--enable-exclusion", action="store_true", default=True, help="Enable exclusion logic (default: True)")
+    # replacement (preferred)
+    ap.add_argument("--enable-exclusion", dest="enable_exclusion", action="store_true",
+                    help="Enable exclusion logic")
+    ap.add_argument("--no-enable-exclusion", dest="enable_exclusion", action="store_false",
+                    help="Disable exclusion logic")
+    ap.set_defaults(enable_exclusion=True)  # set the default you want: True or False
     ap.add_argument("--custom-exclusions", nargs="*", default=[], help="Custom exclusion keywords")
 
     # Limiting options
