@@ -228,23 +228,10 @@ KEY_LIMITS = {
 
 # Exclusion regex patterns
 EXCLUSION_PATTERNS = [
-    # AWS keys with test keywords ANYWHERE
-    re.compile(r'^AKIA.*(TEST|EXAMPLE|DUMMY|FAKE|MOCK|TEMPLATE|SAMPLE|DEMO|EXMPL).*$'),
-
-    # Google API keys with test keywords
-    re.compile(r'^AIza.*(TEST|EXAMPLE|DUMMY|FAKE|MOCK|TEMPLATE|SAMPLE|DEMO|EXMPL).*$'),
-
-    # GitHub tokens with test keywords
-    re.compile(r'^gh[pousr]_.*(TEST|EXAMPLE|DUMMY|FAKE|MOCK|TEMPLATE|SAMPLE|DEMO|EXMPL).*$'),
-    re.compile(r'^github_pat_.*(TEST|EXAMPLE|DUMMY|FAKE|MOCK|TEMPLATE|SAMPLE|DEMO|EXMPL).*$'),
-
-    # Slack tokens with test keywords
-    re.compile(r'^xox[pbars]-.*(TEST|EXAMPLE|DUMMY|FAKE|MOCK|TEMPLATE|SAMPLE|DEMO|EXMPL).*$'),
-
-    # Secrets that START with test keywords
-    re.compile(r'(?i)^(test|example|dummy|fake|mock|template|sample|demo|exmpl)[_-]'),
-
-    # Placeholder patterns
+    # Universal fake/test markers
+    re.compile(r'(?i)(TEST|EXAMPLE|DUMMY|FAKE|MOCK|TEMPLATE|PLACEHOLDER|REDACTED|SAMPLE|DEMO|EXMPL)'),
+    
+    # Placeholder tokens
     re.compile(r'(?i)(your|my|user|customer)[_-]?(key|secret|token|api|password)'),
     re.compile(r'<[^>]+>'),      # <API_KEY>
     re.compile(r'\{[^}]+\}'),    # {API_KEY}
@@ -253,9 +240,11 @@ EXCLUSION_PATTERNS = [
     # Repeated characters
     re.compile(r'0{10,}|1{10,}|X{10,}|x{10,}'),
 
-    # All zeros/ones AWS keys
-    re.compile(r'^AKIA(0{16}|1{16})$'),
+    # Dummy RSA/PGP keys
+    re.compile(r'-----BEGIN.*PRIVATE KEY-----.*FAKE.*-----END.*PRIVATE KEY-----', re.DOTALL),
+    re.compile(r'-----BEGIN PGP PRIVATE KEY BLOCK-----.*FAKE.*-----END PGP PRIVATE KEY BLOCK-----', re.DOTALL),
 ]
+
 
 EXCLUSION_KEYWORDS = [
     "TEST", "EXAMPLE", "DUMMY", "FAKE", "MOCK",
@@ -267,7 +256,7 @@ def should_exclude_secret(secret: str, custom_exclusions: List[str] = None) -> b
     """Check if a secret should be excluded (is fake/test)"""
     # Check regex patterns
     for pattern in EXCLUSION_PATTERNS:
-        if pattern.match(secret):
+        if pattern.search(secret):
             return True
 
     # Check if entirely composed of test keywords + basic chars
