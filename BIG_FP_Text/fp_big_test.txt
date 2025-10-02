@@ -1,0 +1,175 @@
+mkdir -p /regexplorer_/FPSecretsFolder
+cat > /regexplorer_/FPSecretsFolder/fp_big_test.txt <<'EOF'
+# BIG FP TEST FILE - generated for linux_secret_scanner testing
+# EVERYTHING HERE IS FAKE / TEMPLATE / FOR TESTS ONLY
+
+########################################
+# FAKE AWS ACCESS KEY IDS (AKIA...) - many variants
+########################################
+AKIAEXAMPLE000000000
+AKIATESTING123456789
+AKIADFUMYEXMPL000000
+AKIAEXAMPLETEMPLATE1
+AKIADFUMY_DUMMY_EXMPL0000
+AKIAPLACEHOLDER00000000
+# .env style
+AWS_DEV_KEY=AKIAEXAMPLE000000000
+AWS_TEST_KEY=AKIATESTING123456789
+# aws config style
+[default]
+aws_access_key_id = AKIAEXAMPLE000000000
+aws_secret_access_key = FAKESECRET_EXAMPLE_000000000000000000000000
+# colon style
+aws_access_key_id: AKIADFUMYEXMPL000000
+# quoted style
+aws_access_key_id "AKIAEXAMPLETEMPLATE1"
+
+########################################
+# FAKE AWS SECRET KEYS / TOKENS (base64-like, long)
+########################################
+FAKESECRET_EXAMPLE_aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+TESTSECRET_DUMMY_1111111111111111111111111111
+STAGINGSECRET_MOCK_22222222222222222222222222
+PRODSECRET_PLACEHOLDER_333333333333333333333333
+aws_secret_access_key = FAKESECRET_EXAMPLE_000000000000000000000000
+aws_session_token = FAKESESSION_EXAMPLE_ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789
+
+########################################
+# FAKE GOOGLE KEYS (AIza...) + variants
+########################################
+AIzaEXAMPLEabcdefghijklmnopqrstuvwx1234
+AIza1234TESTabcdefghijklmnopqrstuvwx000
+AIzaTEMPLATEabcdefghijklmnopqrstuvwx000
+AIzaFAKEKEYabcdefghijklmnopqrstuvwxTEMPL
+# JSON example
+{"google_api_key":"AIzaEXAMPLEabcdefghijklmnopqrstuvwx1234","note":"dummy"}
+# mixed spacing / messy
+  "google_api_key" :  "AIza1234TESTabcdefghijklmnopqrstuvwx000" ,
+
+########################################
+# FAKE GENERIC API KEYS / TOKENS (various shapes)
+########################################
+API_KEY_EXAMPLE_1234567890ABCDEFG
+token=TEST_TOKEN_dummy_ABCDEFG1234567890
+Authorization: Bearer FAKE-BEARER-EXAMPLE-1234567890abcdef
+apiKey: "DUMMY_API_KEY_TEMPLATE_abcdefghijklmn"
+X-API-KEY: PLACEHOLDER_APIKEY_0000000000
+
+########################################
+# FAKE BASE64-LIKE TOKENS (with padding)
+########################################
+bG9nS1l4Vm5QdDlqQ2Z6bU1rR0p2c1pVQmF3T1h5PQ==
+U2VjdXJlQmFzZTY0S2V5VnJYT2p3cWpLZlBtV2t3PQ==
+cXl5V1p4T2tqNU1rUmZsZ0p2c3pYbG5Qd2t2T2tZPQ==
+Z1h6QmF0V3lTQ29qVnRtc0p2c1pZRm9rV2pQbVY9PQ==
+# .env
+BASE64_TOKEN_A=bG9nS1l4Vm5QdDlqQ2Z6bU1rR0p2c1pVQmF3T1h5PQ==
+
+########################################
+# FAKE GITHUB TOKENS
+########################################
+ghp_TESTEXAMPLEabcdefghijklmnopqrstu
+gho_DUMMY_EXAMPLE_12345678901234567890
+github_pat_EXAMPLE_abcdefghijkl123456
+# code snippet
+const GH = "ghp_TESTEXAMPLEabcdefghijklmnopqrstu";
+
+########################################
+# FAKE SLACK TOKENS
+########################################
+xoxb-TEST-000000000000-EXAMPLE-tokenabcd1234
+xoxp-FAKE-0000000000-tokenabcd123456
+xapp-1-FAKEAPP-abcdefghijklmnopqrstuvwx
+
+########################################
+# FAKE FACEBOOK / OAUTH TOKENS
+########################################
+EAAEXAMPLEabcdefghijklmnopqrstuvwxyZA
+RUFBQ0VkRW9zZTBjQkFAKEBASE64TOKEN==
+
+########################################
+# FAKE JWT-LIKE STRINGS (header.payload.sig)
+# must look like JWT but be clearly fake
+########################################
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJURVNUMV9VU0VSIiwibmFtZSI6IkZBS0VfVXNlciJ9.FAKE-SIGNATURE-EXAMPLE
+dummy.jwt.payload.signatureEXAMPLE12345
+# header-only style in a JSON
+{"token":"eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiVEVTVF9ERU1PX0pXVCJ9.FAKE"}
+
+########################################
+# FAKE PEM / PGP PRIVATE KEYS (placeholders ONLY)
+########################################
+-----BEGIN RSA PRIVATE KEY-----
+FAKE_RSA_PRIVATE_KEY_DATA_PLACEHOLDER
+FAKE_RSA_PRIVATE_KEY_DATA_PLACEHOLDER
+-----END RSA PRIVATE KEY-----
+-----BEGIN PGP PRIVATE KEY BLOCK-----
+Version: GnuPG v2
+FAKEPGP: PLACEHOLDERKEYDATA1234567890
+-----END PGP PRIVATE KEY BLOCK-----
+
+########################################
+# FAKE AZURE KEYS / SAS TOKENS
+########################################
+AccountKey=FAKEAZUREKEYaaaaaaaaaaaaaaaaaaaaaaaaaaaa==
+?sv=2021-04-10&sig=FAKEDSIGNATURE12345&se=2099-01-01T00%3A00%3A00Z
+
+########################################
+# FAKE GOOGLE-BASE64 VARIANTS (QUl6...)
+########################################
+QUl6YUVYQU1QTEVhYmNkZWZnaGlqa2xtbm9wcXJzdHV2d3gxMjM0
+QUl6YTEyMzRURVNUYWJjZGVmZ2hpamtsbW5vcHFyc3R1dnd4MDAw
+# env
+GOOGLE_API_BASE64=QUl6YUVYQU1QTEVhYmNkZWZnaGlqa2xtbm9wcXJzdHV2d3gxMjM0
+
+########################################
+# FAKE CREDIT-CARD-LIKE STRINGS / PCI (clearly labeled TEST)
+########################################
+TESTVISA_4111111111111111
+TESTMC_5500000000000004
+TESTAMEX_340000000000009
+
+########################################
+# FAKE IP / MAC / IBAN examples (PII-like)
+########################################
+192.0.2.123  # TEST IP (docs/example)
+00:11:22:33:44:55  # TEST MAC
+GB82TEST12345612345678  # TEST IBAN
+
+########################################
+# MIXED CONTEXTS: JSON, YAML, CSV, headers, JS/TS, comments
+########################################
+# JSON block
+{
+  "aws": {"dev": "AKIAEXAMPLE000000000", "prod": "AKIATESTING123456789"},
+  "tokens": ["bG9nS1l4Vm5QdDlqQ2Z6bU1rR0p2c1pVQmF3T1h5PQ==", "QUl6YUVYQU1QTEVhYmNk"],
+  "google_keys": {"maps": "AIzaEXAMPLEabcdefghijklmnopqrstuvwx1234"}
+}
+
+# YAML block
+aws:
+  dev_key: "AKIADFUMYEXMPL000000"
+  prod_key: 'AKIAEXAMPLETEMPLATE1'
+google:
+  api_key: "AIza1234TESTabcdefghijklmnopqrstuvwx000"
+
+# CSV block
+id,env,key
+1,dev,AKIAEXAMPLE000000000
+2,test,AKIATESTING123456789
+3,stage,AKIADFUMYEXMPL000000
+
+# HTTP header examples
+# curl -H "X-AWS-Key: AKIAEXAMPLE000000000" https://api.example.com
+# curl -H "Authorization: Bearer FAKE-BEARER-EXAMPLE-123456" https://api.example.com
+
+# JS code snippet
+const CONFIG = {
+  awsKey: "AKIAEXAMPLE000000000",
+  github: "ghp_TESTEXAMPLEabcdefghijklmnopqrstu",
+  slack: "xoxb-TEST-000000000000-EXAMPLE-tokenabcd1234",
+  google: "AIzaTEMPLATEabcdefghijklmnopqrstuvwx000"
+};
+
+# End of file
+EOF
